@@ -1,0 +1,30 @@
+{
+  "name": "fantasy-grimoire",
+  "version": "1.0.0",
+  "description": "A fantasy grimoire application for managing spells, creatures, and items.",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "import": "ts-node scripts/import.ts"
+  },
+  "dependencies": {
+    "ts-node": "^10.0.0",
+    "typescript": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/fantasy-grimoire.git"
+  },
+  "keywords": [
+    "fantasy",
+    "grimoire",
+    "spells",
+    "creatures",
+    "items"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

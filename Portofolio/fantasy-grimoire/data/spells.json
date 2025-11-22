@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Fireball",
+        "description": "A blazing sphere of fire that explodes on impact, dealing damage to all enemies in the area.",
+        "power": 50
+    },
+    {
+        "name": "Healing Light",
+        "description": "A warm light that heals the wounds of allies, restoring health over time.",
+        "power": 30
+    },
+    {
+        "name": "Ice Shard",
+        "description": "A sharp shard of ice that pierces through enemies, slowing their movement.",
+        "power": 40
+    },
+    {
+        "name": "Lightning Bolt",
+        "description": "A bolt of lightning that strikes a single target, dealing high damage and stunning them.",
+        "power": 60
+    },
+    {
+        "name": "Shield",
+        "description": "A protective barrier that absorbs damage for a short duration.",
+        "power": 20
+    }
+]

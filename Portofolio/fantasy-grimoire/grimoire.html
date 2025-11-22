@@ -1,0 +1,199 @@
+// ...existing code...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Angelo Roneil C. Paa — Fantasy Grimoire</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-deep:#07040b;
+      --gold:#d9a441;
+      --muted:#d9d6cf;
+      --accent:#b64b4b;
+      --max-width:1000px;
+      --radius:14px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Merriweather',serif;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(120,40,160,0.12), transparent 6%),
+        radial-gradient(900px 500px at 90% 80%, rgba(10,10,30,0.18), transparent 12%),
+        linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+        url('../Homepage_files/480301141_9279944875455896_5586049436356959454_n.jpg') center/cover fixed;
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding-bottom:60px;
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    .motes{position:fixed;inset:0;pointer-events:none;z-index:5;mix-blend-mode:screen}
+    .motes i{position:absolute;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--gold),rgba(255,200,120,0.9));box-shadow:0 0 12px rgba(217,164,65,0.6);animation:float 8s linear infinite;opacity:0.85;filter:blur(.6px)}
+    .motes i.alt{background:linear-gradient(135deg,var(--accent),#ff9aa0);box-shadow:0 0 10px rgba(182,75,75,0.45)}
+    @keyframes float{0%{transform:translateY(0) translateX(0) scale(.7)}50%{transform:translateY(-140vh) translateX(60vw) scale(1)}100%{transform:translateY(-280vh) translateX(0) scale(.7)}}
+
+    header{max-width:var(--max-width);margin:36px auto;padding:28px;display:flex;gap:18px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));border-radius:var(--radius);border:1px solid rgba(255,255,255,0.04);box-shadow:0 10px 60px rgba(2,0,10,0.6);position:relative;z-index:10}
+    .crest{width:124px;height:124px;flex:0 0 124px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.25));border:2px solid rgba(217,164,65,0.06);box-shadow:inset 0 2px 12px rgba(0,0,0,0.6)}
+    .crest svg{width:86px;height:86px;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.6))}
+    .hero-meta{flex:1}
+    .hero-meta h1{font-family:'Cinzel',serif;font-weight:700;color:var(--gold);letter-spacing:1px;font-size:2rem;margin-bottom:6px;text-shadow:0 2px 8px rgba(0,0,0,0.7)}
+    .hero-meta p{color:var(--muted);font-size:0.98rem;max-width:70ch;line-height:1.6}
+
+    main.container{max-width:var(--max-width);margin:24px auto;padding:0 18px;z-index:8;position:relative}
+    .section{margin:22px 0;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.14));border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 40px rgba(2,0,10,0.5);position:relative;overflow:hidden}
+    .section:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(217,164,65,0.02), transparent 20%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="%23fff" stop-opacity="0.02"/><stop offset="1" stop-color="%23fff" stop-opacity="0"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/></svg>');pointer-events:none;mix-blend-mode:overlay;opacity:0.6}
+    .section h2{font-family:'Cinzel',serif;color:var(--gold);font-size:1.25rem;margin-bottom:8px;letter-spacing:0.6px;display:inline-block;padding-right:12px;position:relative;z-index:2}
+    .ornament{display:inline-block;vertical-align:middle;margin-left:10px;color:var(--accent);opacity:0.95}
+    p, li{color:var(--muted);font-size:0.98rem;line-height:1.7}
+    ul{margin-left:18px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px}
+    /* make .card an anchor so you can add real project links later */
+    .card{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));
+      padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);transform:translateZ(0);
+      transition:transform .28s ease,box-shadow .28s ease;
+      text-decoration:none;
+      color:inherit;
+    }
+    .card:focus{outline:3px solid rgba(217,164,65,0.18);outline-offset:4px}
+    .card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 18px 60px rgba(10,0,30,0.55),0 0 18px rgba(217,164,65,0.06)}
+    .thumb{width:100%;height:160px;overflow:hidden;border-radius:8px;background:#0b0b0b;border:1px solid rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+    .card:hover .thumb img{ transform: scale(1.06) }
+    .card h4{font-family:'Cinzel',serif;color:var(--gold);margin-bottom:6px;font-size:1rem}
+    .card p{color:var(--muted);font-size:.92rem}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .rune{padding:8px 12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(10,6,8,0.18));border-radius:999px;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:700;font-size:.9rem;box-shadow:0 6px 18px rgba(0,0,0,0.45);letter-spacing:.6px;position:relative;transition:transform .22s ease,box-shadow .22s ease}
+    .rune:before{content:"✦";color:var(--gold);margin-right:8px;opacity:0.9;display:inline-block;transform:translateY(-1px)}
+    .rune:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+
+    .contact-row{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:10px;background:linear-gradient(180deg,var(--gold),#b8862b);color:#0b0710;font-weight:700;text-decoration:none;box-shadow:0 8px 26px rgba(181,134,59,0.12);border:1px solid rgba(255,255,255,0.04)}
+    .btn.secondary{background:transparent;color:var(--muted);border:1px dashed rgba(255,255,255,0.04)}
+
+    footer{max-width:var(--max-width);margin:36px auto 80px;text-align:center;color:rgba(217,210,195,0.85);font-size:0.95rem}
+
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}header{flex-direction:column;align-items:center;text-align:center}.hero-meta p{max-width:100%}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}.crest{width:96px;height:96px;flex:0 0 96px}.hero-meta h1{font-size:1.5rem}}
+  </style>
+</head>
+<body>
+
+  <div class="motes" aria-hidden="true">
+    <i style="left:4%; bottom:-10%; width:6px;height:6px; animation-duration:10s"></i>
+    <i class="alt" style="left:16%; bottom:-20%; width:8px;height:8px; animation-duration:12s"></i>
+    <i style="left:36%; bottom:-5%; width:5px;height:5px; animation-duration:9s"></i>
+    <i class="alt" style="left:64%; bottom:-30%; width:7px;height:7px; animation-duration:11s"></i>
+    <i style="left:82%; bottom:-15%; width:6px;height:6px; animation-duration:13s"></i>
+  </div>
+
+  <header role="banner" aria-label="Intro crest">
+    <div class="crest" aria-hidden="true">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffd98b"/><stop offset="1" stop-color="#cf8a3a"/></linearGradient></defs>
+        <circle cx="32" cy="32" r="30" fill="url(#g)" opacity="0.12"/>
+        <path d="M32 12c6 6 12 8 12 18s-6 20-12 22c-6-2-12-12-12-22s6-12 12-18z" fill="#b64b4b" opacity="0.95"/>
+        <path d="M32 20c3 3 6 4 6 9s-3 11-6 12c-3-1-6-7-6-12s3-6 6-9z" fill="#fff" opacity="0.06"/>
+      </svg>
+    </div>
+
+    <div class="hero-meta">
+      <h1>Angelo Roneil C. Paa</h1>
+      <p>Game Artist & Developer — Weaver of worlds, sculptor of light and shadow. Environments, models and gameplay — forged with Blender, Unity and a restless imagination.</p>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="section" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About the Traveler <span class="ornament">✦</span></h2>
+      <p>I craft atmospheric worlds and characters with an eye for silhouette and mood. My tools include Blender for modelling, Unity for interactivity, and a range of paint & texture tools for the final flourish. I enjoy blending technical systems with artistic direction to make playable stories feel alive.</p>
+      <div class="contact-row" style="margin-top:14px">
+        <a class="btn" href="#projects">View Grimoire (Projects)</a>
+        <a class="btn secondary" href="../resume.pdf" download>Download Tome (Resume)</a>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Grimoire of Works <span class="ornament">✦</span></h2>
+
+      <div class="grid" role="list">
+        <a class="card" role="listitem" href="projects/darkons.html" aria-label="Open Darkon's Madness project">
+          <div class="thumb"><img src="assets/darkons.png" alt="Darkon's Madness — environment props (png)"></div>
+          <h4>Darkon's Madness — Guest Artist (2019)</h4>
+          <p>Environment props and textures; contributed mood pieces and banners used during the event.</p>
+        </a>
+
+        <a class="card" role="listitem" href="projects/tomato-works.html" aria-label="Open Tomato Works project">
+          <div class="thumb"><img src="assets/tomato-works.png" alt="Tomato Works — lead art (png)"></div>
+          <h4>Tomato Works — Lead Artist (2023)</h4>
+          <p>Led art direction, asset pipeline and level visuals. Focus on readable silhouette and color language.</p>
+        </a>
+
+        <a class="card" role="listitem" href="projects/pixel-canopy.html" aria-label="Open Pixel Canopy project">
+          <div class="thumb"><img src="assets/pixel-canopy.png" alt="Pixel Canopy — backend tooling (png)"></div>
+          <h4>Pixel Canopy — Back End Dev (2025)</h4>
+          <p>Server-side tooling and content pipelines to support live services and asset distribution.</p>
+        </a>
+
+        <a class="card" role="listitem" href="projects/pixel-z.html" aria-label="Open Pixel Z project">
+          <div class="thumb"><img src="assets/pixel-z.png" alt="Pixel Z — full stack portal (png)"></div>
+          <h4>Pixel Z — Full Stack (2025)</h4>
+          <p>Web portal for analytics and content management with dashboard visualizations.</p>
+        </a>
+
+        <a class="card" role="listitem" href="projects/asset-pack.html" aria-label="Open 3D Asset Pack project">
+          <div class="thumb"><img src="assets/asset-pack.png" alt="3D Asset Pack — props & textures (png)"></div>
+          <h4>3D Asset Pack (2024)</h4>
+          <p>Collection of rigs, PBR textures and props for environment kits and quick prototyping.</p>
+        </a>
+
+        <a class="card" role="listitem" href="projects/personal-demos.html" aria-label="Open Personal Demos project">
+          <div class="thumb"><img src="assets/personal-demos.png" alt="Personal demos — Unity prototypes (png)"></div>
+          <h4>Personal Demos</h4>
+          <p>Small Unity prototypes exploring narrative tools, lighting setups and locomotion mechanics.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Runes & Tools <span class="ornament">✦</span></h2>
+      <div class="skills" role="list">
+        <span class="rune">Unity (C#)</span>
+        <span class="rune">Blender</span>
+        <span class="rune">Maya</span>
+        <span class="rune">Substance Painter</span>
+        <span class="rune">Photoshop</span>
+        <span class="rune">Krita</span>
+        <span class="rune">C#, C++</span>
+        <span class="rune">3D Modeling</span>
+        <span class="rune">Rigging & Animation</span>
+        <span class="rune">Game Design</span>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Summon & Contact <span class="ornament">✦</span></h2>
+      <p>To request work, collaborations, or to trade stories, send a raven (or email): <a href="mailto:202210124@feualabang.edu.ph" style="color:var(--gold);text-decoration:underline">202210124@feualabang.edu.ph</a></p>
+      <p style="margin-top:10px">Phone: <strong>09608138619</strong> — Location: San Pedro, Laguna</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Angelo Roneil C. Paa — Crafted with care. Member: Junior Philippine Computer Society</p>
+  </footer>
+
+</body>
+</html>
+// ...existing code...

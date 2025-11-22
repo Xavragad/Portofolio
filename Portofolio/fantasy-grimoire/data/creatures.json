@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Goblin",
+        "type": "Humanoid",
+        "health": 30
+    },
+    {
+        "name": "Dragon",
+        "type": "Reptile",
+        "health": 200
+    },
+    {
+        "name": "Unicorn",
+        "type": "Mythical",
+        "health": 100
+    },
+    {
+        "name": "Troll",
+        "type": "Humanoid",
+        "health": 80
+    },
+    {
+        "name": "Phoenix",
+        "type": "Mythical",
+        "health": 150
+    },
+    {
+        "name": "Wolf",
+        "type": "Beast",
+        "health": 50
+    },
+    {
+        "name": "Vampire",
+        "type": "Undead",
+        "health": 70
+    },
+    {
+        "name": "Giant",
+        "type": "Humanoid",
+        "health": 120
+    },
+    {
+        "name": "Fairy",
+        "type": "Mythical",
+        "health": 40
+    },
+    {
+        "name": "Zombie",
+        "type": "Undead",
+        "health": 60
+    }
+]
